@@ -66,7 +66,7 @@ function convert() {
           outSwagger += indentator + '"format": "unsafe"';
         }
     } else {
-        outSwagger += indentator + '"type": "number"';
+        outSwagger += indentator + '"type": "number"' + indentator + '"format": "double"';
     }
 	if (document.getElementById("requestExamples").checked) { //Log example if checkbox is checked 
         outSwagger += "," + indentator + '"example": "' + num + '"';
