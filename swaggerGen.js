@@ -36,7 +36,7 @@ function convert() {
 
    	changeIndentation(tabCount+1);
 	if (typeof obj === "number") { //attribute is a number
-      convertNumber(obj);
+      outSwagger += indentator + '"type": "number"' + indentator + '"format": "double"';
     } else if (Object.prototype.toString.call(obj) === '[object Array]') { //attribute is an array
       convertArray(obj[0]);
     } else if (typeof obj === "object") { //attribute is an object
@@ -51,28 +51,28 @@ function convert() {
    	changeIndentation(tabCount-1);
   };
 
-  function convertNumber (num) {
-    /* 
-    Append to 'outSwagger' string with Swagger schema attributes relative to given number
-    Global variables updated: 
-    -outSwagger
-    */
+//   function convertNumber (num) {
+//     /* 
+//     Append to 'outSwagger' string with Swagger schema attributes relative to given number
+//     Global variables updated: 
+//     -outSwagger
+//     */
 
-	if (num % 1 === 0 && !document.getElementById("noInt").checked) {
-        outSwagger += indentator + '"type": "integer",';
-        if (Number.isSafeInteger(num)) {
-          outSwagger += indentator + '"format": "int64"';
-        } else {
-          outSwagger += indentator + '"format": "unsafe"';
-        }
-    } else {
-        outSwagger += indentator + '"type": "number"' + indentator + '"format": "double"';
-    }
-	if (document.getElementById("requestExamples").checked) { //Log example if checkbox is checked 
-        outSwagger += "," + indentator + '"example": "' + num + '"';
-    }
+// 	if (num % 1 === 0 && !document.getElementById("noInt").checked) {
+//         outSwagger += indentator + '"type": "integer",';
+//         if (Number.isSafeInteger(num)) {
+//           outSwagger += indentator + '"format": "int64"';
+//         } else {
+//           outSwagger += indentator + '"format": "unsafe"';
+//         }
+//     } else {
+//         outSwagger += indentator + '"type": "number"' + indentator + '"format": "double"';
+//     }
+// 	if (document.getElementById("requestExamples").checked) { //Log example if checkbox is checked 
+//         outSwagger += "," + indentator + '"example": "' + num + '"';
+//     }
 
-  };
+//   };
 
   //date is ISO8601 format - https://xml2rfc.tools.ietf.org/public/rfc/html/rfc3339.html#anchor14
 //   function convertString (str) {
