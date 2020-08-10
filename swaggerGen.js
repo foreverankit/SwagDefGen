@@ -45,6 +45,8 @@ function convert() {
       outSwagger += indentator + '"type": "string"';
     } else if (typeof obj === "boolean") { // attribute is a boolean
       outSwagger += indentator + '"type": "boolean"';
+    } else if (typeof obj === "undefined"){ // if the array is empty
+      outSwagger += indentator + '"type": "object"' + "," + indentator + '"format": "nullable"';
     } else { // not a valid Swagger type
       alert ('Property type "'+typeof obj+'" not valid for Swagger definitions');
     }
