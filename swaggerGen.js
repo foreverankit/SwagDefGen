@@ -174,7 +174,7 @@ function convert() {
   tabCount = 0; 
   indentator = "\n";
   // ---- Begin definitions ----
-  outSwagger = '"definitions": {';
+  outSwagger = '{';
   changeIndentation(1);
   //For each object inside the JSON
   for (var obj in inJSON) {
