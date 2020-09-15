@@ -9,4 +9,4 @@ This is a tool to help building Swagger documentations. It converts JSON request
 * Allows mock values to be added as example in description
 
 ## TO-DO List
-* Reflection for detecting reusable definitions
+* Reflection for detecting reusable definitions. This is a very cool project.
